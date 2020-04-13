@@ -1,6 +1,7 @@
 version: "3"
 services:
   broker:
+    container_name: mosquitto
     image: eclipse-mosquitto
     volumes:
       - "./mosquitto:/mosquitto"
@@ -9,6 +10,7 @@ services:
     ports:
       - "1883:1883"
   node-red:
+    container_name: nodered
     depends_on:
       - broker
     image: nodered/node-red-docker
